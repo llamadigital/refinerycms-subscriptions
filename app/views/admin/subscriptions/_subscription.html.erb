@@ -1,6 +1,6 @@
 <li class='clearfix record <%= cycle("on", "on-hover") %>'>
   <span class='title'>
-    <%= link_to subscription.name, admin_subscription_url(subscription) %> - <%= link_to subscription.email, 'http://mailto:' + subscription.email %>
+    <%= link_to subscription.name, admin_subscription_url(subscription) %> - <%= link_to subscription.email, 'mailto:' + subscription.email %>
   </span>
   <span class='actions'>
     <%= link_to refinery_icon_tag('delete.png'), admin_subscription_url(subscription),
