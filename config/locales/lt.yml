@@ -1,17 +1,17 @@
 lt:
   plugins:
-    refinery_inquiries:
+    refinery_subscriptions:
       title: Užklausos
       description: Suteikia kontaktų formą ir saugo užklausas
-  inquiries:
+  subscriptions:
     new:
       send: Siųsti žinutę
       privacy_policy: Mes vertiname jūsų privatumą
   admin:
-    inquiries:
+    subscriptions:
       delete: Pašalinti šią užklausą visam laikui
-      inquiry:
-        read_inquiry: Skaityti užklausą
+      subscription:
+        read_subscription: Skaityti užklausą
         said: pasakė
         mark_as_spam: Pažymėti kaip šlamštą
         mark_as_ham: Perkelti prie Gautų laiškų
@@ -21,25 +21,25 @@ lt:
         update_notified: Pakeiskite, kas gauna pranešimus
         edit_confirmation_email: Redaguoti patvirtinimo laišką
       index:
-        no_inquiries: Kol kas nėra jokių užklausų.
+        no_subscriptions: Kol kas nėra jokių užklausų.
         no_spam: Valio! Jūs neturite jokio spamo.
       show:
         details: Smulkesnė informacija
         age: Amžius
         actions: Veiksmai
-        back_to_all_inquiries: Grįžti į visas užklausas
+        back_to_all_subscriptions: Grįžti į visas užklausas
         spam: Šlamštas
         spam_yes: 'taip'
-        inquiry: Užklausa
+        subscription: Užklausa
         to: Kam
         from: Nuo
         click_to_email: Paspauskite norėdami siųsti laišką šiuo adresu
         phone: Telefonas
         date: Data
         message: Žinutė
-    inquiry_settings:
+    subscription_settings:
       notification_recipients_form:
-        inquiry_settings_value_name: Siųsti pranešimus į
+        subscription_settings_value_name: Siųsti pranešimus į
         hint: Kai užpildoma nauja užklausa, Refinery jums atsiųs pranešimą.
         example: "Įveskite savo el. pašto adresą(us) pvz: jonas@imone.lt, petras@office.com"
       confirmation_email_form:
@@ -49,16 +49,16 @@ lt:
         click_to_edit_subject: Norėdami keisti temą spauskite čia
         explanation: Kas kart kai kas nors kontaktuos su Jumis svetainėje, Refinery išsiųs patvirtinimo laišką užklausos siuntėjui.
         below_edit_email_sent: Žemiau galite redaguoti laišką kuris bus siunčiamas.
-        the_customer_making_inquiry: Klientas siunčiantis užklausą
+        the_customer_making_subscription: Klientas siunčiantis užklausą
         message: Message
         note: "Note: place the text %name% where you'd like the customer's name to appear in the email"
         note: "Pastaba: įterpkite tekstą %name% kur norėtumėte matyti kliento vardą laiške"
-  inquiry_mailer:
+  subscription_mailer:
     notification:
       greeting: Sveiki
-      you_recieved_new_inquiry: Jūs katik gavote naują užklausą savo svetainėje.
-      inquiry_starts: --- užklausa prasideda ---
-      inquiry_ends: --- užklausa baigiasi ---
+      you_recieved_new_subscription: Jūs katik gavote naują užklausą savo svetainėje.
+      subscription_starts: --- užklausa prasideda ---
+      subscription_ends: --- užklausa baigiasi ---
       from: Nuo
       email: El. paštas
       phone: Telefonas
@@ -67,9 +67,9 @@ lt:
       ps: P.S. Visos užklausos yra saugomos skiltyje "Užklausos", jei kada vėliau norėsite jas peržiūrėti.
   activerecord:
     models:
-      inquiry: užklausa
+      subscription: užklausa
     attributes:
-      inquiry:
+      subscription:
         name: Vardas
         email: El. paštas
         phone: Telefonas

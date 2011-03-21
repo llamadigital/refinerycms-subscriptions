@@ -1,0 +1,30 @@
+<%= render :partial => "submenu" %>
+<div id='records'>
+  <% if searching? %>
+    <h2><%= t('shared.admin.search.results_for', :query => params[:search]) %></h2>
+    <% if @subscriptions.any? %>
+      <%= will_paginate @subscriptions %>
+      <ul>
+        <%= render :partial => "subscription", :collection => @subscriptions %>
+      </ul>
+      <%= will_paginate @subscriptions %>
+    <% else %>
+      <p><%= t('shared.admin.search.no_results') %></p>
+    <% end %>
+  <% else %>
+    <% if @subscriptions.any? -%>
+      <%= will_paginate @subscriptions %>
+      <% group_by_date(@subscriptions).each do |container| %>
+        <h3><%= l((subscription_group = container.last).first.created_at, :format => :short) %></h3>
+        <ul>
+          <%= render :partial => 'subscription', :collection => subscription_group %>
+        </ul>
+      <% end %>
+      <%= will_paginate @subscriptions %>
+    <% else -%>
+      <p>
+        <strong><%= t(".no_#{action_name == 'index' ? 'subscriptions' : 'spam'}") %></strong>
+      </p>
+    <% end -%>
+  <% end %>
+</div>

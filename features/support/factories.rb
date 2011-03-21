@@ -1,6 +1,6 @@
 require 'factory_girl'
 
-Factory.define :inquiry do |i|
+Factory.define :subscription do |i|
   i.name "Refinery"
   i.email "refinery@cms.com"
   i.message "Hello..."

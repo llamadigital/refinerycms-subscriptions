@@ -1,17 +1,17 @@
 sk:
   plugins:
-    refinery_inquiries:
+    refinery_subscriptions:
       title: Otázky
       description: Zabezpečuje kontaktný formulár a uchováva zaslané otázky.
-  inquiries:
+  subscriptions:
     new:
       send: Odoslať správu
       privacy_policy: Vážime si Vaše súkromie
   admin:
-    inquiries:
+    subscriptions:
       delete: Odstrániť otázku
-      inquiry:
-        read_inquiry: Zobraziť otázku
+      subscription:
+        read_subscription: Zobraziť otázku
         said: povedal
         mark_as_spam: Označiť ako spam
         mark_as_ham: Presunúť do inbox-u
@@ -21,25 +21,25 @@ sk:
         update_notified: Aktualizovať zoznam notifikovaných
         edit_confirmation_email: Upraviť potvrdzujúci email
       index:
-        no_inquiries: Nemáte žiadne otázky.
+        no_subscriptions: Nemáte žiadne otázky.
         no_spam: Hurá! Nemáte žiadny spam. 
       show:
         details: Detaily
         age: Vek
         actions: Akcie
-        back_to_all_inquiries: Návrat na zoznam otázok
+        back_to_all_subscriptions: Návrat na zoznam otázok
         spam: Spam
         spam_yes: 'áno'
-        inquiry: Otázka
+        subscription: Otázka
         to: Pre
         from: Od
         click_to_email: Click to email this address
         phone: Telefón
         date: Dátum
         message: Správa
-    inquiry_settings:
+    subscription_settings:
       notification_recipients_form:
-        inquiry_settings_value_name: Odoslať notifikáciu pre 
+        subscription_settings_value_name: Odoslať notifikáciu pre 
         hint: Pri poslaní novej otázky, Refinery pošle notifikáčnú správu na zadané emaily.
         example: "Zadaj tvoju emailovú adresu(y) ako napríklad: jack@work.com, jill@office.com"
       confirmation_email_form:
@@ -49,15 +49,15 @@ sk:
         click_to_edit_subject: Klikni tu pre editáciu subjektu
         explanation: Vždy keď ťa niekto kontaktuje cez web, Refinery pošle potvrdzujúci email o prijaťí otázky osobe, ktorá ju zadala.
         below_edit_email_sent: Nižšie si môžeš upraviť email, ktorý je posielaný.
-        the_customer_making_inquiry: Klient zaslal otázku
+        the_customer_making_subscription: Klient zaslal otázku
         message: Správa
         note: "Poznámka: Vlož text %name% kde chceš aby sa nachádzalo klientove meno v správe."
-  inquiry_mailer:
+  subscription_mailer:
     notification:
       greeting: Ahoj
-      you_recieved_new_inquiry: Práve si obdržal novú otázku na webovej stránke.
-      inquiry_starts: --- začiatok otázky ---
-      inquiry_ends: --- koniec otázky ---
+      you_recieved_new_subscription: Práve si obdržal novú otázku na webovej stránke.
+      subscription_starts: --- začiatok otázky ---
+      subscription_ends: --- koniec otázky ---
       from: Od
       email: Email
       phone: Telefón
@@ -66,9 +66,9 @@ sk:
       ps: P.S. Všetky otázky sú uložené pod sekciou "Otázky" v administrácii web stránky, ak by ich bolo potrebné zobraziť neskôr.
   activerecord:
     models:
-      inquiry: otázka
+      subscription: otázka
     attributes:
-      inquiry:
+      subscription:
         name: Meno
         email: Email
         phone: Telefón

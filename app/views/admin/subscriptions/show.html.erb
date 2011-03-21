@@ -1,0 +1,54 @@
+<div id='actions'>
+  <h2><%= t('.details')%></h2>
+  <p>
+    <strong><%= t('.age') %>:</strong> <%= time_ago_in_words(@subscription.created_at) %>
+  </p>
+  <% if @subscription.spam? %>
+    <p>
+      <strong><%= t('.spam') %>:</strong> <%= t('.spam_yes') %>
+    </p>
+  <% end %>
+  <h2><%= t('.actions') %></h2>
+  <ul>
+    <li>
+      <%= link_to t('.back_to_all_subscriptions'), {:action => 'index'}, :class => "back_icon" %>
+    </li>
+    <li>
+      <%= link_to t('admin.subscriptions.delete'),
+                  admin_subscription_url(@subscription),
+                  :class => 'delete_icon no-tooltip confirm-delete',
+                  :title => t('admin.subscriptions.delete'),
+                  :confirm => t('shared.admin.delete.message', :title => @subscription.name),
+                  :method => :delete %>
+    </li>
+  </ul>
+</div>
+<div id='records'>
+  <h2><%= t('.subscription') %></h2>
+  <table id='subscription'>
+    <tr>
+      <td>
+        <strong><%= t('.to') %></strong>
+      </td>
+      <td>
+        <%= RefinerySetting[:site_name] %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong><%= t('.from') %></strong>
+      </td>
+      <td>
+        <%= @subscription.name %> [<%= mail_to @subscription.email, @subscription.email, {:title => t('.click_to_email')} %>]
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong><%= t('.date') %></strong>
+      </td>
+      <td>
+        <%= l(Date.parse(@subscription.created_at.to_s), :format => :long) %>
+      </td>
+    </tr>
+  </table>
+</div>

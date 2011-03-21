@@ -1,17 +1,17 @@
 de:
   plugins:
-    refinery_inquiries:
+    refinery_subscriptions:
       title: Kontaktanfragen
       description: Stellt ein Kontaktformular zur Verfügung und speichert Kontaktanfragen
-  inquiries:
+  subscriptions:
     new:
       send: Nachricht senden
       privacy_policy: Ihre Privatsphäre ist uns wichtig
   admin:
-    inquiries:
+    subscriptions:
       delete: Diese Kontaktanfrage für immer löschen
-      inquiry:
-        read_inquiry: Kontaktanfrage lesen
+      subscription:
+        read_subscription: Kontaktanfrage lesen
         said: schrieb
         mark_as_spam: Als Spam markieren
         mark_as_ham: In den Posteingang verschieben
@@ -21,25 +21,25 @@ de:
         update_notified: Wer wird benachrichtigt aktualisieren
         edit_confirmation_email: Bestätigungs-E-Mail bearbeiten
       index:
-        no_inquiries: Sie haben noch keine Kontaktanfragen erhalten.
+        no_subscriptions: Sie haben noch keine Kontaktanfragen erhalten.
         no_spam: Juhu! Sie haben keinen Spam.
       show:
         details: Details
         age: Alter
         actions: Aktionen
-        back_to_all_inquiries: Zurück zu allen Kontaktanfragen
+        back_to_all_subscriptions: Zurück zu allen Kontaktanfragen
         spam: Spam
         spam_yes: 'ja'
-        inquiry: Kontaktanfrage
+        subscription: Kontaktanfrage
         to: An
         from: Von
         click_to_email: Klicken, um eine E-Mail an diese Adresse zu schicken
         phone: Telefon
         date: Datum
         message: Nachricht
-    inquiry_settings:
+    subscription_settings:
       notification_recipients_form:
-        inquiry_settings_value_name: Schicke Benachrichtigungen an
+        subscription_settings_value_name: Schicke Benachrichtigungen an
         explanation: Jedesmal wenn jemand Sie auf Ihrer Webseite kontaktiert, wird eine E-Mail mit einem Hinweis zu einer neuen Kontaktanfrage versendet.
         hint: Wenn eine neue Kontaktanfrage gestellt wurde, wird Refinery Ihnen eine E-Mail mit einem Hinweis schicken.
         example: "Geben Sie Ihre E-Mail-Adresse(n) an, z. B.: jack@work.com, jill@office.com"
@@ -50,15 +50,15 @@ de:
         click_to_edit_subject: Klicken Sie hier, um den Betreff zu bearbeiten
         explanation: Jedesmal wenn jemand Sie auf Ihrer Webseite kontaktiert, wird eine E-Mail an die anfragende Person zur Bestätigung der Kontaktanfrage versendet.
         below_edit_email_sent: Unten können Sie die E-Mail bearbeiten, die versendet wird.
-        the_customer_making_inquiry: Der Kunde, der die Kontaktanfrage gestellt hat
+        the_customer_making_subscription: Der Kunde, der die Kontaktanfrage gestellt hat
         message: Nachricht
         note: "Hinweis: Um den Namen des Kunden in der E-Mail einzufügen, verwenden Sie den Platzhalter %name%"
-  inquiry_mailer:
+  subscription_mailer:
     notification:
       greeting: Hallo
-      you_recieved_new_inquiry: Sie haben eine neue Kontaktanfrage über Ihre Webseite erhalten.
-      inquiry_starts: --- Anfang der Kontaktanfrage ---
-      inquiry_ends: --- Ende der Kontaktanfrage ---
+      you_recieved_new_subscription: Sie haben eine neue Kontaktanfrage über Ihre Webseite erhalten.
+      subscription_starts: --- Anfang der Kontaktanfrage ---
+      subscription_ends: --- Ende der Kontaktanfrage ---
       from: Von
       email: E-Mail
       phone: Telefon
@@ -67,9 +67,9 @@ de:
       ps: P.S. All Ihre Kontaktanfragen werden im Bereich "Kontaktanfragen" von Refinery gespeichert, sollten Sie diese zu einem späteren Zeitpunkt wieder ansehen wollen.
   activerecord:
     models:
-      inquiry: Kontaktanfrage
+      subscription: Kontaktanfrage
     attributes:
-      inquiry:
+      subscription:
         name: Name
         email: E-Mail
         phone: Telefon

@@ -1,22 +1,22 @@
 sl:
   plugins:
-    refinery_inquiries:
+    refinery_subscriptions:
       title: Povpraševanja
       description: Priskrbi kontaktni obrazec in shrani povpraševanja
-  inquiries:
+  subscriptions:
     new:
       send: Pošlji sporočilo
       privacy_policy: "Cenimo vašo zasebnost"
   admin:
-    inquiries:
+    subscriptions:
       delete: Odstrani povpraševanje
-      inquiry:
-        read_inquiry: Preberi povpraševanje
+      subscription:
+        read_subscription: Preberi povpraševanje
         said: pravi
         mark_as_spam: Označi kot nezaželjeno
         mark_as_ham: Premakni v prejeto
       index:
-        no_inquiries: Trenutno še ni nobenega povpraševanja.
+        no_subscriptions: Trenutno še ni nobenega povpraševanja.
         no_spam: Huura! Nimate nezaželjene pošte.
       submenu:
         inbox: Prejeto
@@ -27,19 +27,19 @@ sl:
         details: Podrobnosti
         age: Starost
         actions: Možnosti
-        back_to_all_inquiries: Nazaj na vsa povpraševanja
+        back_to_all_subscriptions: Nazaj na vsa povpraševanja
         spam: Nezaželjeno
         spam_yes: 'da'
-        inquiry: Povpraševanje
+        subscription: Povpraševanje
         to: Za
         from: Od
         click_to_email: Pošlji email sporočilo
         phone: Telefon
         date: Datum
         message: Sporočilo
-    inquiry_settings:
+    subscription_settings:
       notification_recipients_form:
-        inquiry_settings_value_name: Pošlji obvestilo na
+        subscription_settings_value_name: Pošlji obvestilo na
         hint: "V zgornje polje vnesite email naslov. Želite da obvestila prejme več oseb? Vnesite več email naslovov ločenih z vejicami."
         example: "Primer: jaz@domena.com, prijatelj@msn.com, sodelavec@work.com"
       confirmation_email_form:
@@ -49,15 +49,15 @@ sl:
         click_to_edit_subject: Uredi zadevo
         explanation: "Vedno ko vas nekdo kontaktira na vaši spletni strani mu Refinery pošlje email obvestilo o prejetem povpraševanju."
         below_edit_email_sent: Spodaj lahko uredite vsebino email sporočila.
-        the_customer_making_inquiry: Stranka, ki je poslala povpraševanje
+        the_customer_making_subscription: Stranka, ki je poslala povpraševanje
         message: Sporočilo
         note: "Opomba: vstavite tekst %name% kjer želite, da se pojavi ime stranke v email sporočilu."
-  inquiry_mailer:
+  subscription_mailer:
     notification:
       greeting: Pozdravljeni
-      you_recieved_new_inquiry: Na vaši spletni strani ste prejeli ste novo povpraševanje.
-      inquiry_starts: --- začetek povpraševanja ---
-      inquiry_ends: --- konec povpraševanja ---
+      you_recieved_new_subscription: Na vaši spletni strani ste prejeli ste novo povpraševanje.
+      subscription_starts: --- začetek povpraševanja ---
+      subscription_ends: --- konec povpraševanja ---
       from: Od
       email: Email
       phone: Telefon
@@ -66,9 +66,9 @@ sl:
       ps: P.S. Vsa povpraševanja so shranjena pod zavihkom "Povpraševanja" v Refinery.
   activerecord:
     models:
-      inquiry: Povpraševanje
+      subscription: Povpraševanje
     attributes:
-      inquiry:
+      subscription:
         name: Ime
         email: Email
         phone: Telefon

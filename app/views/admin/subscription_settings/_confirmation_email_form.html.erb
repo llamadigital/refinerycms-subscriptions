@@ -6,13 +6,13 @@
   <p>
     <%= t('.below_edit_email_sent') %>
   </p>
-  <table id='inquiry'>
+  <table id='subscription'>
     <tr>
       <td>
         <label class='stripped'><%= t('.to') %></label>
       </td>
       <td>
-        <%= t('.the_customer_making_inquiry') %>
+        <%= t('.the_customer_making_subscription') %>
       </td>
     </tr>
     <tr>
@@ -28,7 +28,7 @@
         <label class='stripped'><%= t('.subject') %></label>
       </td>
       <td>
-        <%= text_field_tag 'subject', InquirySetting.confirmation_subject,
+        <%= text_field_tag 'subject', SubscriptionSetting.confirmation_subject,
                            :class => 'widest' %>
       </td>
     </tr>
@@ -51,7 +51,7 @@
              :locals => {
                :f => f,
                :continue_editing => false,
-               :cancel_url => admin_inquiries_url,
+               :cancel_url => admin_subscriptions_url,
                :hide_delete => true
              } %>
 <% end %>

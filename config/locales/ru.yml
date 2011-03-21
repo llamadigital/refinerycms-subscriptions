@@ -1,17 +1,17 @@
 ru:
   plugins:
-    refinery_inquiries:
+    refinery_subscriptions:
       title: Запросы
       description: Предоставляет форму обратной связи и хранит запросы
-  inquiries:
+  subscriptions:
     new:
       send: Отправить сообщение
       privacy_policy: Мы относимся с уважением к вашим личным данным
   admin:
-    inquiries:
+    subscriptions:
       delete: Удалить этот запрос навсегда
-      inquiry:
-        read_inquiry: Прочитать запрос
+      subscription:
+        read_subscription: Прочитать запрос
         said: пишет
         mark_as_spam: Пометить как спам
         mark_as_ham: Переместить во входящие
@@ -21,25 +21,25 @@ ru:
         update_notified: Изменить получателей уведомлений
         edit_confirmation_email: Редактировать письмо-подтверждение
       index:
-        no_inquiries: "Вы еще не получили ни одного запроса."
+        no_subscriptions: "Вы еще не получили ни одного запроса."
         no_spam: "Ура, спама нет!"
       show:
         details: Подробности
         age: Срок
         actions: Действия
-        back_to_all_inquiries: Назад ко всем запросам
+        back_to_all_subscriptions: Назад ко всем запросам
         spam: Спам
         spam_yes: да
-        inquiry: Запрос
+        subscription: Запрос
         to: Кому
         from: От
         click_to_email: Нажмите, чтобы отправить письмо
         phone: Телефон
         date: Дата
         message: Сообщение
-    inquiry_settings:
+    subscription_settings:
       notification_recipients_form:
-        inquiry_settings_value_name: Отправлять уведомления
+        subscription_settings_value_name: Отправлять уведомления
         hint: "Когда поступит новый запрос, Refinery CMS отправит вам уведомление на электронную почту."
         example: "Введите один или несколько адресов электронной почты через запятую: anna@mail.ru, ivanov@yandex.ru"
       confirmation_email_form:
@@ -49,15 +49,15 @@ ru:
         click_to_edit_subject: Редактировать тему сообщения
         explanation: "Каждый раз, когда кто-то связывается с вами посредством вашего сайта, Refinery CMS отправляет ему письмо, подтверждающее принятие запроса."
         below_edit_email_sent: Ниже вы можете отредактировать отсылаемое письмо
-        the_customer_making_inquiry: "Клиент, делающий запрос"
+        the_customer_making_subscription: "Клиент, делающий запрос"
         message: Сообщение
         note: "Примечание. Поместите текст %name% там, где вы хотите, чтобы появилось имя клиента."
-  inquiry_mailer:
+  subscription_mailer:
     notification:
       greeting: Здравствуйте
-      you_recieved_new_inquiry: Вы только что получили новый запрос со своего сайта
-      inquiry_starts: --- начало запроса ---
-      inquiry_ends: --- конец запроса ---
+      you_recieved_new_subscription: Вы только что получили новый запрос со своего сайта
+      subscription_starts: --- начало запроса ---
+      subscription_ends: --- конец запроса ---
       from: От
       email: Эл. почта
       phone: Телефон
@@ -66,9 +66,9 @@ ru:
       ps: Все запросы вы можете увидеть в соответствующем разделе Refinery.
   activerecord:
     models:
-      inquiry: Запрос
+      subscription: Запрос
     attributes:
-      inquiry:
+      subscription:
         name: Имя
         email: Эл. почта
         phone: Телефон

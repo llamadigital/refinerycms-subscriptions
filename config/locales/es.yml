@@ -1,12 +1,12 @@
 es:
   plugins:
-    refinery_inquiries:
+    refinery_subscriptions:
       title: Consultas
   activerecord:
     models:
-      inquiry: Consulta
+      subscription: Consulta
     attributes:
-      inquiry:
+      subscription:
         to: Para
         from: De
         click_to_email: Dale Click a este email
@@ -14,26 +14,26 @@ es:
         date: Fecha
         name: Nombre
         message: Mensaje
-  inquiries:
+  subscriptions:
     new:
       header_message: "Mil disculpas hay un pequeño problema."
       message: "Los siguientes problemas necesitan ser corregidos:"
       send: Enviar mensaje
       privacy_policy: "Nosotros valoramos tu privacidad"
   admin:
-    inquiries:
-      inquiry:
-        move_inquiry_to_closed: Cambiar esta consulta a cerrada
-        move_inquiry_to_open: Cambiar esta consulta a abierta
-        read_inquiry: Leer esta consulta
-        remove_inquiry: "Estas seguro que quieres borrar esta consulta de '%{name}'?"
+    subscriptions:
+      subscription:
+        move_subscription_to_closed: Cambiar esta consulta a cerrada
+        move_subscription_to_open: Cambiar esta consulta a abierta
+        read_subscription: Leer esta consulta
+        remove_subscription: "Estas seguro que quieres borrar esta consulta de '%{name}'?"
         title: Quitar esta consulta.
       toggle_status:
-        closed: "La consulta '%{inquiry}' esta cerrada"
-        reopened: "La consulta '%{inquiry}' esta abierta"
+        closed: "La consulta '%{subscription}' esta cerrada"
+        reopened: "La consulta '%{subscription}' esta abierta"
       index:
         search_results_for: Resultados de la busqueda de %{query}
-        no_inquiries: No has recibido ninguna consulta aun.
+        no_subscriptions: No has recibido ninguna consulta aun.
       show:
         details: Detalles
         click_to_email: Click al email
@@ -42,16 +42,16 @@ es:
         closed: Cerrado
         age: Edad
         actions: Acciones
-        back_to_all_inquiries: Regresar a todas las consultas
-        inquiry: Consulta
+        back_to_all_subscriptions: Regresar a todas las consultas
+        subscription: Consulta
       submenu:
         update_notified: "Actualizar a quien será notificado"
         edit_confirmation_email: "Editar email de confirmación"
-    inquiry_settings:
+    subscription_settings:
       update:
         updated: "'%{setting}' fue actualizado exitosamente."
       notification_recipients_form:
-        inquiry_settings_value_name: Mandar notificaciones a
+        subscription_settings_value_name: Mandar notificaciones a
         explanation: "Cada vez que alguien se comunique con usted en su sitio web, Refinery enviara un correo electrónico respecto a esta nueva consulta."
         hint: "Ingrese una dirección de correo. Ingrese la dirección de correo de las persona que vaya a ser notificada, si quiere que varias personas sean notificadas ingrese las direcciones de correo separadas por comas."
         example: "Ejemplo: me@domain.com, friend@msn.com, workmate@work.com"
@@ -62,7 +62,7 @@ es:
         click_to_edit_subject: Click aqui para modificar el asunto
         explanation: "Cada vez que alguien se comunique con usted en su sitio web, Refinery enviara un correo electrónico respecto a esta nueva consulta."
         below_edit_email_sent: "Abajo usted puede editar el email a donde la consulta será enviado."
-        the_customer_making_inquiry: El cliente haciendo la consulta
+        the_customer_making_subscription: El cliente haciendo la consulta
         message: Mensaje
         note: "Nota: ingrese el texto %name% donde quiera que el nombre del cliente aparezca en el email"
       subject_form:

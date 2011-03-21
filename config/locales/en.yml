@@ -1,17 +1,17 @@
 en:
   plugins:
-    refinery_inquiries:
-      title: Inquiries
-      description: Provides a contact form and stores inquiries
-  inquiries:
+    refinery_subscriptions:
+      title: Subscriptions
+      description: Provides a contact form and stores subscriptions
+  subscriptions:
     new:
       send: Send message
       privacy_policy: We value your privacy
   admin:
-    inquiries:
-      delete: Remove this inquiry forever
-      inquiry:
-        read_inquiry: Read the inquiry
+    subscriptions:
+      delete: Remove this subscription forever
+      subscription:
+        read_subscription: Read the subscription
         said: said
         mark_as_spam: Mark as spam
         mark_as_ham: Move to inbox
@@ -20,56 +20,58 @@ en:
         spam: Spam
         update_notified: Update who gets notified
         edit_confirmation_email: Edit confirmation email
+        export_csv: Export CSV file
       index:
-        no_inquiries: You have not received any inquiries yet.
+        no_subscriptions: You have not received any subscriptions yet.
         no_spam: Hooray! You don't have any spam.
       show:
         details: Details
         age: Age
         actions: Actions
-        back_to_all_inquiries: Back to all Inquiries
+        back_to_all_subscriptions: Back to all Subscriptions
         spam: Spam
         spam_yes: 'yes'
-        inquiry: Inquiry
+        subscription: Subscription
         to: To
         from: From
         click_to_email: Click to email this address
         phone: Phone
         date: Date
         message: Message
-    inquiry_settings:
+    subscription_settings:
       notification_recipients_form:
-        inquiry_settings_value_name: Send notifications to
-        hint: When a new inquiry is submitted, Refinery will send an email notification to you.
+        subscription_settings_value_name: Send notifications to
+        hint: When a new subscription is submitted, Refinery will send an email notification to you.
         example: "Enter your email address(es) like: jack@work.com, jill@office.com"
       confirmation_email_form:
         to: To
         from: From
         subject: Subject
         click_to_edit_subject: Click here to edit the subject
-        explanation: Every time someone contacts you on your website, Refinery sends out an email to confirm the inquiry with the person who made it.
+        explanation: Every time someone contacts you on your website, Refinery sends out an email to confirm the subscription with the person who made it.
         below_edit_email_sent: Below you can edit the email that is sent out.
-        the_customer_making_inquiry: The customer making the inquiry
+        the_customer_making_subscription: The customer making the subscription
         message: Message
         note: "Note: place the text %name% where you'd like the customer's name to appear in the email"
-  inquiry_mailer:
+  subscription_mailer:
     notification:
       greeting: Hi there
-      you_recieved_new_inquiry: You just received a new inquiry on your website.
-      inquiry_starts: --- inquiry starts ---
-      inquiry_ends: --- inquiry ends ---
+      you_recieved_new_subscription: You just received a new subscription on your website.
+      subscription_starts: --- subscription starts ---
+      subscription_ends: --- subscription ends ---
       from: From
       email: Email
       phone: Phone
       message: Message
       closing_line: Kind Regards
-      ps: P.S. All your inquiries are stored in the "Inquiries" section of Refinery should you ever want to view it later there.
+      ps: P.S. All your subscriptions are stored in the "Subscriptions" section of Refinery should you ever want to view it later there.
   activerecord:
     models:
-      inquiry: inquiry
+      subscription: subscription
     attributes:
-      inquiry:
+      subscription:
         name: Name
         email: Email
         phone: Phone
         message: Message
+
