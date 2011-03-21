@@ -22,7 +22,6 @@ Gem::Specification.new do |s|
   ]
   s.require_path = 'lib'
 
-  s.add_dependency('filters_spam', '~> 0.2')
 end
 EOF
 

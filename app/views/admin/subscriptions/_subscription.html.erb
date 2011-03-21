@@ -11,13 +11,5 @@
 
     <%= link_to refinery_icon_tag('zoom.png'), admin_subscription_url(subscription),
                 :title => t('.read_subscription') -%>
-
-    <% if subscription.spam? %>
-      <%= link_to refinery_icon_tag('email.png'), toggle_spam_admin_subscription_url(subscription),
-                  :title => t('.mark_as_ham') -%>
-    <% else %>
-      <%= link_to refinery_icon_tag('bin_closed.png'), toggle_spam_admin_subscription_url(subscription),
-                  :title => t('.mark_as_spam') -%>
-    <% end %>
   </span>
 </li>

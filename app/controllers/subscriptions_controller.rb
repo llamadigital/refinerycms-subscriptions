@@ -14,7 +14,7 @@ class SubscriptionsController < ApplicationController
     @subscription = Subscription.new(params[:subscription])
 
     if @subscription.save
-      if @subscription.ham?
+
         begin
           SubscriptionMailer.notification(@subscription, request).deliver
         rescue
@@ -26,7 +26,6 @@ class SubscriptionsController < ApplicationController
         rescue
           logger.warn "There was an error delivering an subscription confirmation:\n#{$!}\n"
         end
-      end
 
       redirect_to thank_you_subscriptions_url
     else

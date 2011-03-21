@@ -23,7 +23,7 @@
       <%= will_paginate @subscriptions %>
     <% else -%>
       <p>
-        <strong><%= t(".no_#{action_name == 'index' ? 'subscriptions' : 'spam'}") %></strong>
+        <strong><%= t('.no_subscriptions') %></strong>
       </p>
     <% end -%>
   <% end %>

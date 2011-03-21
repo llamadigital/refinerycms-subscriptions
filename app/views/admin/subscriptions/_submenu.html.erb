@@ -6,13 +6,6 @@
     <li <%= "class='selected'" if params[:action] == "index" %>>
       <%= link_to t('.inbox'), admin_subscriptions_url, :class => "email_icon" %>
     </li>
-    <li <%= "class='selected'" if params[:action] == "spam" %>>
-      <% if @spam_count > 0  %>
-        <%= link_to "#{t('.spam')} (#{@spam_count})", spam_admin_subscriptions_url, :class => "spam_icon" %>
-      <% else %>
-        <%= link_to t('.spam'), spam_admin_subscriptions_url, :class => "spam_empty_icon" %>
-      <% end %>
-    </li>
     <li>
       <%= link_to t('.update_notified'), edit_admin_subscription_setting_url(:subscription_notification_recipients, :dialog => true, :height => 300), :class => "user_comment_icon" %>
     </li>

@@ -4,9 +4,7 @@ class CreateSubscriptions < ActiveRecord::Migration
       create_table ::Subscription.table_name, :force => true do |t|
         t.string   "name"
         t.string   "email"
-        t.datetime "created_at"
-        t.datetime "updated_at"
-        t.boolean  "spam",       :default => false
+        t.timestamps
       end
 
       add_index ::Subscription.table_name, :id
@@ -17,8 +15,7 @@ class CreateSubscriptions < ActiveRecord::Migration
       t.string   "name"
       t.text     "value"
       t.boolean  "destroyable"
-      t.datetime "created_at"
-      t.datetime "updated_at"
+      t.timestamps
     end unless ::SubscriptionSetting.table_exists?
 
     load(Rails.root.join('db', 'seeds', 'pages_for_subscriptions.rb').to_s)
