@@ -4,7 +4,7 @@
       <%= render :partial => "/shared/admin/search", :locals => {:url => request.path} %>
     </li>
     <li <%= "class='selected'" if params[:action] == "index" %>>
-      <%= link_to t('.inbox'), admin_subscriptions_url, :class => "email_icon" %>
+      <%= link_to t('.list'), admin_subscriptions_url, :class => "email_icon" %>
     </li>
     <li>
       <%= link_to t('.update_notified'), edit_admin_subscription_setting_url(:subscription_notification_recipients, :dialog => true, :height => 300), :class => "user_comment_icon" %>
@@ -13,7 +13,7 @@
       <%= link_to t('.edit_confirmation_email'), edit_admin_subscription_setting_url(:subscription_confirmation_body, :dialog => true), :class => "edit_email_icon" %>
     </li>
     <li>
-      <%= link_to t('.export_csv'), admin_subscriptions_path(:format=>:csv), :class => "edit_email_icon" %>
+      <%= link_to t('.export_csv'), admin_subscriptions_path(:format=>:csv), :class => "go_icon" %>
     </li>
   </ul>
 </div>

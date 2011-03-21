@@ -2,53 +2,40 @@ en:
   plugins:
     refinery_subscriptions:
       title: Subscriptions
-      description: Provides a contact form and stores subscriptions
+      description: Provides a form and admin interface to manage email subscriptions
   subscriptions:
-    new:
-      send: Send message
-      privacy_policy: We value your privacy
+    form:
+      send: Subscribe
   admin:
     subscriptions:
       delete: Remove this subscription forever
-      subscription:
-        read_subscription: Read the subscription
-        said: said
-        mark_as_spam: Mark as spam
-        mark_as_ham: Move to inbox
       submenu:
-        inbox: Inbox
-        spam: Spam
+        list: List Subscriptions
         update_notified: Update who gets notified
         edit_confirmation_email: Edit confirmation email
         export_csv: Export CSV file
       index:
         no_subscriptions: You have not received any subscriptions yet.
-        no_spam: Hooray! You don't have any spam.
       show:
         details: Details
-        age: Age
         actions: Actions
-        back_to_all_subscriptions: Back to all Subscriptions
-        spam: Spam
-        spam_yes: 'yes'
+        back_to_all_subscriptions: Back to all subscriptions
         subscription: Subscription
         to: To
         from: From
         click_to_email: Click to email this address
-        phone: Phone
         date: Date
-        message: Message
     subscription_settings:
       notification_recipients_form:
         subscription_settings_value_name: Send notifications to
-        hint: When a new subscription is submitted, Refinery will send an email notification to you.
+        hint: When a new subscription is submitted, Refinery can send an email notification to you.
         example: "Enter your email address(es) like: jack@work.com, jill@office.com"
       confirmation_email_form:
         to: To
         from: From
         subject: Subject
         click_to_edit_subject: Click here to edit the subject
-        explanation: Every time someone contacts you on your website, Refinery sends out an email to confirm the subscription with the person who made it.
+        explanation: Every time someone subscribes, Refinery sends out an email to confirm the subscription with the person who made it.
         below_edit_email_sent: Below you can edit the email that is sent out.
         the_customer_making_subscription: The customer making the subscription
         message: Message
@@ -59,10 +46,8 @@ en:
       you_recieved_new_subscription: You just received a new subscription on your website.
       subscription_starts: --- subscription starts ---
       subscription_ends: --- subscription ends ---
-      from: From
+      from: Name
       email: Email
-      phone: Phone
-      message: Message
       closing_line: Kind Regards
       ps: P.S. All your subscriptions are stored in the "Subscriptions" section of Refinery should you ever want to view it later there.
   activerecord:
@@ -72,6 +57,3 @@ en:
       subscription:
         name: Name
         email: Email
-        phone: Phone
-        message: Message
-
