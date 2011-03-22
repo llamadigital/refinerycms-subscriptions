@@ -55,5 +55,6 @@ en:
       subscription: subscription
     attributes:
       subscription:
-        name: Name
+        given_name: First name
+        family_name: Last name
         email: Email

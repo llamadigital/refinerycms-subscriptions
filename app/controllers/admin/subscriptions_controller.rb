@@ -2,7 +2,7 @@ require 'csv'
 
 class Admin::SubscriptionsController < Admin::BaseController
 
-  crudify :subscription, :title_attribute => "name", :order => "created_at DESC"
+  crudify :subscription, :title_attribute => "email", :order => "created_at DESC"
   helper_method :group_by_date
 
   def index
@@ -14,9 +14,9 @@ class Admin::SubscriptionsController < Admin::BaseController
       format.csv do
         @subscriptions = Subscription.all
         csv_string = CSV.generate do |csv|
-          csv << ['id','name','email']
+          csv << ['id','given_name','family_name','email']
           @subscriptions.each do |subscription|
-            csv << [subscription.id, subscription.name, subscription.email]
+            csv << [subscription.id, subscription.given_name, subscription.family_name, subscription.email]
           end
         end
         send_data csv_string,

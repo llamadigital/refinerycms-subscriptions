@@ -1,8 +1,12 @@
     <%= form_for @subscription do |f| %>
       <%= render :partial => "/shared/admin/error_messages", :locals => {:object => @subscription,:include_object_name => true} %>
       <div class='field'>
-        <%= f.required_label :name %>
-        <%= f.text_field :name %>
+        <%= f.required_label :given_name %>
+        <%= f.text_field :given_name %>
+      </div>
+      <div class='field'>
+        <%= f.required_label :family_name %>
+        <%= f.text_field :family_name %>
       </div>
       <div class='field'>
         <%= f.required_label :email %>
