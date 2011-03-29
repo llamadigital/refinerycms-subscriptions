@@ -13,7 +13,7 @@ class Subscription < ActiveRecord::Base
   end
 
   def fullname
-    given_name+' '+family_name
+    (given_name || '')+' '+(family_name || '')
   end
 
 end
