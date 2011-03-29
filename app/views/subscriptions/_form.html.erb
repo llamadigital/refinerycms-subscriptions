@@ -1,5 +1,7 @@
-    <%= form_for @subscription do |f| %>
+    <%= form_for (@subscription || Subscription.new) do |f| %>
+      <% if @subscription.present? %>
       <%= render :partial => "/shared/admin/error_messages", :locals => {:object => @subscription,:include_object_name => true} %>
+      <% end %>
       <div class='field'>
         <%= f.required_label :given_name %>
         <%= f.text_field :given_name %>
