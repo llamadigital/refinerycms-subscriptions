@@ -7,18 +7,13 @@ Feature: Manage Subscriptions
   Background:
     Given I am a logged in refinery user
     And I have no subscriptions
-    And I have an subscription from "David Jones" with email "dave@refinerycms.com" and message "Hello, I really like your website.  Was it hard to build and maintain or could anyone do it?"
+    And I have a subscription from "David Jones" with email "dave@refinerycms.com"
 
   Scenario: Subscriptions List
     When I go to the list of subscriptions
-    Then I should see "David Jones said Hello, I really like your website. Was it hard to build ..."
+    Then I should see "David Jones"
     And I should have 1 subscriptions
     And I should not see "Add"
-
-  Scenario: Spam List
-    When I go to the list of subscriptions
-    And I follow "Spam"
-    Then I should see "Hooray! You don't have any spam."
 
   @subscription-settings
   Scenario: Updating who gets notified
