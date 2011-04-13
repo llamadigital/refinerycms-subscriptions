@@ -25,6 +25,7 @@ en:
         from: From
         click_to_email: Click to email this address
         date: Date
+        age: Age
     subscription_settings:
       notification_recipients_form:
         subscription_settings_value_name: Send notifications to
