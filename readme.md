@@ -20,3 +20,9 @@ Go into your 'Subscriptions' tab in the Refinery admin area and click on "Update
 ## How do I Edit the Automatic Confirmation Email
 
 Go into your 'Subscriptions' tab in the Refinery admin area and click on "Edit confirmation email"
+
+## Attribution
+
+Forked from Resolve Digital's Inquiries Engine.
+
+https://github.com/resolve/refinerycms-inquiries
