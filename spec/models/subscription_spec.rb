@@ -6,18 +6,18 @@ describe Subscription do
   describe "validations" do
     before(:each) do
       @attr = {
-        :name => "rspec",
-        :email => "rspec@refinery.com",
-        :message => "test"
+        :given_name => "rspec",
+        :family_name => "rspec",
+        :email => "rspec@refinery.com"
       }
     end
 
-    it "rejects empty name" do
-      Subscription.new(@attr.merge(:name => "")).should_not be_valid
+    it "rejects empty given name" do
+      Subscription.new(@attr.merge(:given_name => "")).should_not be_valid
     end
 
-    it "rejects empty message" do
-      Subscription.new(@attr.merge(:message => "")).should_not be_valid
+    it "rejects empty family name" do
+      Subscription.new(@attr.merge(:family_name => "")).should_not be_valid
     end
 
     it "rejects invalid email format" do
