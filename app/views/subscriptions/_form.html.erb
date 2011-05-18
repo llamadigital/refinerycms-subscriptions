@@ -16,6 +16,7 @@
       </div>
       <% unless Subscription.available_tags.empty? -%>
       <div class='field'>
+        <%= label_tag 'Tags' %>
         <%= select_tag('subscription[tags]',Subscription.available_tag_options) %>
         <%
         #<ul>
