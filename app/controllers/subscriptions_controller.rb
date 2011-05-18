@@ -11,7 +11,17 @@ class SubscriptionsController < ApplicationController
   end
 
   def create
+    tags = params[:subscription].delete(:tags)
     @subscription = Subscription.new(params[:subscription])
+
+    # this is generic
+    @subscription.tags = tags if tags.is_a? Array
+
+    # this is for radio buttons
+    @subscription.tags = [tags] if tags.is_a? String
+
+    # this is for checkboxes
+    @subscription.tags = tags.keys if tags.is_a? Hash
 
     if @subscription.save
 
@@ -33,7 +43,7 @@ class SubscriptionsController < ApplicationController
     end
   end
 
-protected
+  protected
 
   def find_page
     @page = Page.find_by_link_url('/subscribe', :include => [:parts, :slugs])

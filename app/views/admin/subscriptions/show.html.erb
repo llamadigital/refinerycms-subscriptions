@@ -45,5 +45,14 @@
         <%= l(Date.parse(@subscription.created_at.to_s), :format => :long) %>
       </td>
     </tr>
+    <tr>
+      <td>
+        <strong><%= t('.tags') %></strong>
+      </td>
+      <td>
+        <%= @subscription.tags.join(', ') %>
+      </td>
+    </tr>
   </table>
 </div>
+

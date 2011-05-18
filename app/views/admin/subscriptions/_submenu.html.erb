@@ -13,7 +13,11 @@
       <%= link_to t('.edit_confirmation_email'), edit_admin_subscription_setting_url(:subscription_confirmation_body, :dialog => true), :class => "edit_email_icon" %>
     </li>
     <li>
+      <%= link_to t('.edit_tags'), edit_admin_subscription_setting_url(:subscription_tags, :dialog => true), :class => "edit_email_icon" %>
+    </li>
+    <li>
       <%= link_to t('.export_csv'), admin_subscriptions_path(:format=>:csv), :class => "go_icon" %>
     </li>
   </ul>
 </div>
+

@@ -1,5 +1,8 @@
 <% if @refinery_setting.name.to_s.titleize == "Subscription Notification Recipients" %>
   <%= render :partial => "notification_recipients_form", :locals => {:edit => true} -%>
+<% elsif @refinery_setting.name.to_s.titleize == "Subscription Tags" %>
+  <%= render :partial => "tags_form", :locals => {:edit => true} -%>
 <% else %>
   <%= render :partial => "confirmation_email_form", :locals => {:edit => true} -%>
 <% end %>
+

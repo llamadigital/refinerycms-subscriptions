@@ -2,17 +2,16 @@ class Admin::SubscriptionSettingsController < Admin::BaseController
 
   crudify :refinery_setting,
           :title_attribute => "name",
-          :order => 'name ASC',
+          :order => 'name asc',
           :redirect_to_url => "admin_subscriptions_url"
 
   before_filter :set_url_override?, :only => [:edit, :update]
   after_filter :save_subject_for_confirmation?, :only => :update
   around_filter :rewrite_flash?, :only => :update
 
-protected
+  protected
   def rewrite_flash?
     yield
-
     flash[:notice] = flash[:notice].to_s.gsub(/(\'.*\')/) {|m| m.titleize}.gsub('Subscription ', '')
   end
 
@@ -41,3 +40,4 @@ protected
   end
 
 end
+

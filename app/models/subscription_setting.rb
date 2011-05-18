@@ -25,4 +25,9 @@ class SubscriptionSetting < ActiveRecord::Base
     RefinerySetting.find_or_set(:subscription_notification_subject,"New subscription from your website")
   end
 
+  def self.tags
+    RefinerySetting.find_or_set(:subscription_tags,"")
+  end
+
 end
+
