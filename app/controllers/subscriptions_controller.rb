@@ -4,6 +4,7 @@ class SubscriptionsController < ApplicationController
 
   def thank_you
     @page = Page.find_by_link_url("/subscribe/thank_you", :include => [:parts, :slugs])
+    render :default
   end
 
   def new
@@ -13,22 +14,19 @@ class SubscriptionsController < ApplicationController
   def create
     tags = params[:subscription].delete(:tags)
     @subscription = Subscription.new(params[:subscription])
-
     # this is generic
     @subscription.tags = tags if tags.is_a? Array
-
     # this is for radio buttons
     @subscription.tags = [tags] if tags.is_a? String
-
     # this is for checkboxes
     @subscription.tags = tags.keys if tags.is_a? Hash
 
     if @subscription.save
 
         begin
-          SubscriptionMailer.notification(@subscription, request).deliver
+          SubscriptionMailer.activation(@subscription, request).deliver
         rescue
-          logger.warn "There was an error delivering an subscription notification.\n#{$!}\n"
+          logger.warn "There was an error delivering an subscription activation.\n#{$!}\n"
         end
 
         begin
@@ -41,6 +39,27 @@ class SubscriptionsController < ApplicationController
     else
       render :action => 'new'
     end
+  end
+
+  def activate
+    token = params[:token]
+    @subscription = Subscription.can_activate.all.reject { |s| s.activation_token!=token }
+    if @subscription.blank? || @subscription.size > 1
+      redirect_to not_activated_subscriptions_url
+    else
+      @subscription.first.activate!
+      redirect_to activated_subscriptions_url
+    end
+  end
+
+  def activated
+    @page = Page.find_by_link_url("/subscribe/activated", :include => [:parts, :slugs])
+    render :default
+  end
+
+  def not_activated
+    @page = Page.find_by_link_url("/subscribe/not_activated", :include => [:parts, :slugs])
+    render :default
   end
 
   protected

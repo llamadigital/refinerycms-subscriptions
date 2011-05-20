@@ -1,4 +1,5 @@
 require 'csv'
+require 'digest'
 
 class Subscription < ActiveRecord::Base
 
@@ -8,7 +9,9 @@ class Subscription < ActiveRecord::Base
 
   acts_as_indexed :fields => [:given_name, :family_name, :email]
 
-  default_scope :order => 'created_at DESC' # previously scope :newest
+  default_scope :order => 'created_at desc' # previously scope :newest
+
+  scope :can_activate, lambda { where("activated = ?", false).order('created_at desc') }
 
   def self.latest(number = 7)
     limit(number)
@@ -24,10 +27,23 @@ class Subscription < ActiveRecord::Base
 
   def tags=(tags)
     if tags.blank?
-      write_attribute(:tags,nil)
+      write_attribute(:tags, nil)
     else
       write_attribute(:tags,tags.to_csv)
     end
+  end
+
+  def activation_token
+    Digest::SHA512.hexdigest(email)
+  end
+
+  def activate!
+    write_attribute(:activated, true)
+    save!
+  end
+
+  def is_active?
+    activated
   end
 
   def self.available_tags

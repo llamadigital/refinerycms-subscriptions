@@ -17,6 +17,23 @@ class SubscriptionSetting < ActiveRecord::Base
     end
   end
 
+  def self.activation_body
+    RefinerySetting.find_or_set(:subscription_activation_body,"Thank you for your subscription request %name%,\n\nTo activate your subscription click this <a href=\"%url%\">link</a>.\n\nThanks.")
+  end
+
+  def self.activation_subject
+    RefinerySetting.find_or_set(:subscription_activation_subject, "Please activate your subscription")
+  end
+
+  def self.activation_subject=(value)
+    # handles a change in Refinery API
+    if RefinerySetting.methods.map(&:to_sym).include?(:set)
+      RefinerySetting.set(:subscription_activation_subject, value)
+    else
+      RefinerySetting[:subscription_activation_subject] = value
+    end
+  end
+
   def self.notification_recipients
     RefinerySetting.find_or_set(:subscription_notification_recipients,((Role[:refinery].users.first.email rescue nil) if defined?(Role)).to_s)
   end

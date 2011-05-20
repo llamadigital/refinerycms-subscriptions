@@ -4,6 +4,9 @@ Refinery::Application.routes.draw do
   resources :subscribe, :only => :create, :as => :subscriptions, :controller => 'subscriptions' do
     collection do
       get :thank_you
+      get :activate
+      get :activated
+      get :not_activated
     end
   end
 

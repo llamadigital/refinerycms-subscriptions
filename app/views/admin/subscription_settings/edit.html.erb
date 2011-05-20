@@ -2,7 +2,11 @@
   <%= render :partial => "notification_recipients_form", :locals => {:edit => true} -%>
 <% elsif @refinery_setting.name.to_s.titleize == "Subscription Tags" %>
   <%= render :partial => "tags_form", :locals => {:edit => true} -%>
-<% else %>
+<% elsif @refinery_setting.name.to_s.titleize == "Subscription Activation Body" %>
+  <%= render :partial => "activation_email_form", :locals => {:edit => true} -%>
+<% elsif @refinery_setting.name.to_s.titleize == "Subscription Confirmation Body" %>
   <%= render :partial => "confirmation_email_form", :locals => {:edit => true} -%>
+<% else %>
+  <%= @refinery_setting.name.to_s.titleize %>
 <% end %>
 

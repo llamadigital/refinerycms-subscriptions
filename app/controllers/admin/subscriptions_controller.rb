@@ -14,9 +14,9 @@ class Admin::SubscriptionsController < Admin::BaseController
       format.csv do
         @subscriptions = Subscription.all
         csv_string = CSV.generate do |csv|
-          csv << ['id','given_name','family_name','email','tags']
+          csv << ['id','given_name','family_name','email','tags','activated']
           @subscriptions.each do |subscription|
-            csv << [subscription.id, subscription.given_name, subscription.family_name, subscription.email, subscription.tags.join(', ')]
+            csv << [subscription.id, subscription.given_name, subscription.family_name, subscription.email, subscription.tags.join(', '), subscription.is_active? ? 'yes' : 'no']
           end
         end
         send_data csv_string,

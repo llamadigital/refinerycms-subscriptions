@@ -53,6 +53,14 @@
         <%= @subscription.tags.join(', ') %>
       </td>
     </tr>
+    <tr>
+      <td>
+        <strong><%= t('.activated') %></strong>
+      </td>
+      <td>
+        <%= @subscription.is_active? ? 'yes' : 'no' %>
+      </td>
+    </tr>
   </table>
 </div>
 

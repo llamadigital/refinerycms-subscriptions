@@ -13,7 +13,10 @@ en:
         list: List Subscriptions
         update_notified: Update who gets notified
         edit_confirmation_email: Edit confirmation email
+        edit_tags: Edit tags
+        edit_activation_email: Edit confirmation email
         export_csv: Export CSV file
+
       index:
         no_subscriptions: You have not received any subscriptions yet.
       show:
@@ -31,6 +34,16 @@ en:
         subscription_settings_value_name: Send notifications to
         hint: When a new subscription is submitted, Refinery can send an email notification to you.
         example: "Enter your email address(es) like: jack@work.com, jill@office.com"
+      activation_email_form:
+        to: To
+        from: From
+        subject: Subject
+        click_to_edit_subject: Click here to edit the subject
+        explanation: Every time someone subscribes, Refinery sends out an email with an activation link in it.
+        below_edit_email_sent: Below you can edit the email that is sent out.
+        the_customer_making_subscription: The customer making the subscription
+        message: Message
+        note: "Note: place the text %name% where you'd like the customer's name to appear in the email and the text %url% where you would like the activation url to appear."
       confirmation_email_form:
         to: To
         from: From
@@ -59,3 +72,4 @@ en:
         given_name: First name
         family_name: Last name
         email: Email
+

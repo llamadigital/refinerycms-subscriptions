@@ -1,0 +1,54 @@
+<%= form_for([:admin, @refinery_setting], :url => (@url_override || @url)) do |f| %>
+
+  <p>
+    <%= t('.explanation') %>
+  </p>
+  <p>
+    <%= t('.below_edit_email_sent') %>
+  </p>
+  <table id='subscription'>
+    <tr>
+      <td>
+        <label class='stripped'><%= t('.to') %></label>
+      </td>
+      <td>
+        <%= t('.the_customer_making_subscription') %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label class='stripped'><%= t('.from') %></label>
+      </td>
+      <td>
+        <%= "#{RefinerySetting[:site_name]} &lt;no-reply@#{request.domain(RefinerySetting.find_or_set(:tld_length, 1))}&gt;".html_safe %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label class='stripped'><%= t('.subject') %></label>
+      </td>
+      <td>
+        <%= text_field_tag 'subject', SubscriptionSetting.activation_subject, :class => 'widest' %>
+      </td>
+    </tr>
+    <tr>
+      <td valign='top'>
+        <%= f.label :value, t('.message'), :class => 'stripped' %>
+      </td>
+      <td>
+        <%= f.text_area :value, :value => f.object.value, :rows => "5", :class => 'widest' %>
+        <br/>
+        <em><%= t('.note') %></em>
+      </td>
+    </tr>
+  </table>
+
+  <%= render :partial => "/shared/admin/form_actions",
+             :locals => {
+               :f => f,
+               :continue_editing => false,
+               :cancel_url => admin_subscriptions_url,
+               :hide_delete => true
+             } %>
+<% end %>
+
