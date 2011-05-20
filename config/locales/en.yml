@@ -14,9 +14,8 @@ en:
         update_notified: Update who gets notified
         edit_confirmation_email: Edit confirmation email
         edit_tags: Edit tags
-        edit_activation_email: Edit confirmation email
+        edit_activation_email: Edit activation email
         export_csv: Export CSV file
-
       index:
         no_subscriptions: You have not received any subscriptions yet.
       show:
@@ -54,6 +53,10 @@ en:
         the_customer_making_subscription: The customer making the subscription
         message: Message
         note: "Note: place the text %name% where you'd like the customer's name to appear in the email"
+      tags_form:
+        subscription_settings_value_name: Tags available for subscriptions
+        hint: A new subscription is submitted can be tagged with one or more words or phrases.
+        example: "Enter tag(s) in a comma separated list like: tag1,tag2,tag3"
   subscription_mailer:
     notification:
       greeting: Hi there
