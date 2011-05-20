@@ -28,6 +28,8 @@ en:
         click_to_email: Click to email this address
         date: Date
         age: Age
+        tags: Tags
+        activated: Activated
     subscription_settings:
       notification_recipients_form:
         subscription_settings_value_name: Send notifications to

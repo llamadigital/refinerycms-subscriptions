@@ -26,13 +26,7 @@ class SubscriptionsController < ApplicationController
         begin
           SubscriptionMailer.activation(@subscription, request).deliver
         rescue
-          logger.warn "There was an error delivering an subscription activation.\n#{$!}\n"
-        end
-
-        begin
-          SubscriptionMailer.confirmation(@subscription, request).deliver
-        rescue
-          logger.warn "There was an error delivering an subscription confirmation:\n#{$!}\n"
+          logger.warn "There was an error delivering a subscription activation.\n#{$!}\n"
         end
 
       redirect_to thank_you_subscriptions_url
@@ -48,6 +42,19 @@ class SubscriptionsController < ApplicationController
       redirect_to not_activated_subscriptions_url
     else
       @subscription.first.activate!
+
+        begin
+          SubscriptionMailer.notification(@subscription, request).deliver
+        rescue
+          logger.warn "There was an error delivering a subscription notification:\n#{$!}\n"
+        end
+
+        begin
+          SubscriptionMailer.confirmation(@subscription, request).deliver
+        rescue
+          logger.warn "There was an error delivering a subscription confirmation:\n#{$!}\n"
+        end
+
       redirect_to activated_subscriptions_url
     end
   end
