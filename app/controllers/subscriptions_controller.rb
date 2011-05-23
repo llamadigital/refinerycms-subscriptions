@@ -36,8 +36,8 @@ class SubscriptionsController < ApplicationController
       redirect_to not_activated_subscriptions_url
     else
       @subscription.first.activate!
-      SubscriptionMailer.notification(@subscription, request).deliver
-      SubscriptionMailer.confirmation(@subscription, request).deliver
+      SubscriptionMailer.notification(@subscription.first, request).deliver
+      SubscriptionMailer.confirmation(@subscription.first, request).deliver
       redirect_to activated_subscriptions_url
     end
   end
