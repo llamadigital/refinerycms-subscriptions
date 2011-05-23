@@ -34,7 +34,7 @@ class Subscription < ActiveRecord::Base
   end
 
   def activation_token
-    Digest::SHA512.hexdigest(email)
+    Digest::MD5.hexdigest(email)
   end
 
   def activate!
