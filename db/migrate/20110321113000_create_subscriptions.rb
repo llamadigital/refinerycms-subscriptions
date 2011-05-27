@@ -18,6 +18,8 @@ class CreateSubscriptions < ActiveRecord::Migration
       t.timestamps
     end unless ::SubscriptionSetting.table_exists?
 
+    ::Page.reset_column_information if defined?(::Page)
+
     load(Rails.root.join('db', 'seeds', 'pages_for_subscriptions.rb').to_s)
   end
 
@@ -25,7 +27,7 @@ class CreateSubscriptions < ActiveRecord::Migration
      drop_table ::Subscription.table_name
      # todo: remove at 1.0
      drop_table ::SubscriptionSetting.table_name
-     Page.delete_all({:link_url => ("/subscribe" || "/subscribe/thank_you")})
+     Page.delete_all({:link_url => ("/subscribe" || "/subscribe/thank_you" || "/subscribe/activated" || "/subscribe/not_activated")})
   end
 end
 

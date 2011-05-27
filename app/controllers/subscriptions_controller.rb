@@ -1,5 +1,14 @@
 class SubscriptionsController < ApplicationController
 
+  # this default controller expects pages that are set to link to
+  # /subscribe
+  # /subscribe/thank_you
+  # /subscribe/activated
+  # /subscribe/not_activated
+  # these pages never get loaded by the page controller
+  # these pages do not use the thank-you urls with the hyphens
+  # the hyphenated urls come from the page controller slug system
+
   before_filter :find_page, :only => [:create, :new]
 
   def thank_you

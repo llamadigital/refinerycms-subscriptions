@@ -30,7 +30,35 @@ thank_you_page = subscribe_page.children.create({
 })
 thank_you_page.parts.create({
   :title => "Body",
-  :body => "<p>We've received your subscription request and will get back to you with a response shortly.</p><p><a href='/'>Return to the home page</a></p>",
+  :body => "<p>We've received your subscription request.</p><p><a href='/'>Return to the home page</a></p>",
+  :position => 0
+})
+
+activated_page = subscribe_page.children.create({
+  :title => "Activated",
+  :link_url => "/subscribe/activated",
+  :menu_match => "^/subscriptions/activated$",
+  :show_in_menu => false,
+  :deletable => false,
+  :position => (subscribe_page_position += 1)
+})
+activated_page.parts.create({
+  :title => "Body",
+  :body => "<p>Thank you for activating your subscription.</p><p><a href='/'>Return to the home page</a></p>",
+  :position => 0
+})
+
+not_activated_page = subscribe_page.children.create({
+  :title => "Not Activated",
+  :link_url => "/subscribe/not_activated",
+  :menu_match => "^/subscriptions/not_activated$",
+  :show_in_menu => false,
+  :deletable => false,
+  :position => (subscribe_page_position += 1)
+})
+not_activated_page.parts.create({
+  :title => "Body",
+  :body => "<p>Your subscription request cannot be activated at this time, please try again later.</p><p><a href='/'>Return to the home page</a></p>",
   :position => 0
 })
 

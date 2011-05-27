@@ -3,6 +3,10 @@ require 'digest'
 
 class Subscription < ActiveRecord::Base
 
+  before_validation(:on => :create) do
+    self.email = email.strip if attribute_present?("email")
+  end
+
   validates :given_name, :presence => true
   validates :family_name, :presence => true
   validates :email, :format=> { :with =>  /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i }
@@ -61,6 +65,8 @@ class Subscription < ActiveRecord::Base
       CSV.parse_line(csv)
     end
   end
+
+end
 
 end
 
