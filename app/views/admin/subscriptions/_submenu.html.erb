@@ -7,16 +7,25 @@
       <%= link_to t('.list'), admin_subscriptions_url, :class => "email_icon" %>
     </li>
     <li>
-      <%= link_to t('.update_notified'), edit_admin_subscription_setting_url(:subscription_notification_recipients, :dialog => true, :height => 300), :class => "user_comment_icon" %>
+      <%= link_to t('.update_notified'), edit_admin_subscription_setting_path(:subscription_notification_recipients, :dialog => true, :height => 300), :class => "user_comment_icon" %>
+    </li>
+    <% if RefinerySetting.find_or_set('subscription_activation',false) -%>
+    <li>
+      <%= link_to t('.disable_activation'), activation_admin_subscriptions_path(:subscription_activation_body, :dialog => false), :class => "edit_email_icon" %>
     </li>
     <li>
-      <%= link_to t('.edit_activation_email'), edit_admin_subscription_setting_url(:subscription_activation_body, :dialog => true), :class => "edit_email_icon" %>
+      <%= link_to t('.edit_activation_email'), edit_admin_subscription_setting_path(:subscription_activation_body, :dialog => true), :class => "edit_email_icon" %>
+    </li>
+    <% else -%>
+    <li>
+      <%= link_to t('.enable_activation'), activation_admin_subscriptions_path(:subscription_activation_body, :dialog => false), :class => "edit_email_icon" %>
+    </li>
+    <% end -%>
+    <li>
+      <%= link_to t('.edit_confirmation_email'), edit_admin_subscription_setting_path(:subscription_confirmation_body, :dialog => true), :class => "edit_email_icon" %>
     </li>
     <li>
-      <%= link_to t('.edit_confirmation_email'), edit_admin_subscription_setting_url(:subscription_confirmation_body, :dialog => true), :class => "edit_email_icon" %>
-    </li>
-    <li>
-      <%= link_to t('.edit_tags'), edit_admin_subscription_setting_url(:subscription_tags, :dialog => true), :class => "edit_email_icon" %>
+      <%= link_to t('.edit_tags'), edit_admin_subscription_setting_path(:subscription_tags, :dialog => true), :class => "edit_email_icon" %>
     </li>
     <li>
       <%= link_to t('.export_csv'), admin_subscriptions_path(:format=>:csv), :class => "go_icon" %>

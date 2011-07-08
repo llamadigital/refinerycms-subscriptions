@@ -1,4 +1,6 @@
-class SubscriptionSetting < ActiveRecord::Base
+class SubscriptionSetting < RefinerySetting
+
+  set_table_name RefinerySetting.table_name
 
   def self.confirmation_body
     RefinerySetting.find_or_set(:subscription_confirmation_body,"Thank you for your subscription %name%,\n\nThis email is a receipt to confirm we have received your subscription and we'll be in touch shortly.\n\nThanks.")

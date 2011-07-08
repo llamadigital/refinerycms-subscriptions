@@ -25,5 +25,14 @@ class Admin::SubscriptionsController < Admin::BaseController
       end
     end
   end
+
+  def activation
+    if RefinerySetting.find_or_set(:subscription_activation, false)
+      RefinerySetting.set(:subscription_activation,false)
+    else
+      RefinerySetting.set(:subscription_activation,true)
+    end
+    redirect_to :action => 'index'
+  end
 end
 

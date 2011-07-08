@@ -1,2 +1,2 @@
-<%= SubscriptionSetting.activation_body.gsub("%name%", @subscription.fullname).gsub("%url%", activate_subscriptions_url(:token=>@subscription.activation_token)) %>
+<%= SubscriptionSetting.activation_body.gsub("%name%", @subscription.fullname).gsub("%url%", activate_subscriptions_url(:token=>@subscription.activation_token, :host=>RefinerySetting['host'])).html_safe %>
 

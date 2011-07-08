@@ -30,8 +30,15 @@ class SubscriptionsController < ApplicationController
     # this is for checkboxes
     @subscription.tags = tags.keys if tags.is_a? Hash
 
+    do_activate = RefinerySetting.find_or_set('subscription_activation',false)
+
     if @subscription.save
-      SubscriptionMailer.activation(@subscription, request).deliver
+
+      begin
+        SubscriptionMailer.activation(@subscription, request).deliver
+      rescue
+        logger.warn "There was an error delivering a subscription request.\n#{$!.inspect}\n#{$@.join('\n')}\n"
+      end
       redirect_to thank_you_subscriptions_url
     else
       render :action => 'new'
@@ -45,8 +52,17 @@ class SubscriptionsController < ApplicationController
       redirect_to not_activated_subscriptions_url
     else
       @subscription.first.activate!
-      SubscriptionMailer.notification(@subscription.first, request).deliver
-      SubscriptionMailer.confirmation(@subscription.first, request).deliver
+      begin
+        SubscriptionMailer.notification(@subscription.first, request).deliver
+      rescue
+        logger.warn "There was an error delivering a subscription activation notification.\n#{$!.inspect}\n#{$@.join('\n')}\n"
+      end
+      begin
+        SubscriptionMailer.confirmation(@subscription.first, request).deliver
+      rescue
+        logger.warn "There was an error delivering a subscription activation confirmation.\n#{$!.inspect}\n#{$@.join('\n')}\n"
+      end
+
       redirect_to activated_subscriptions_url
     end
   end

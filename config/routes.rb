@@ -20,12 +20,9 @@ Refinery::Application.routes.draw do
   # admin routes
   scope(:path => 'refinery', :as => 'admin', :module => 'admin') do
     resources :subscriptions, :only => [:index, :show, :destroy] do
-      #collection do
-        #get :spam
-      #end
-      #member do
-        #get :toggle_spam
-      #end
+      collection do
+        get :activation
+      end
     end
     resources :subscription_settings, :only => [:edit, :update]
   end

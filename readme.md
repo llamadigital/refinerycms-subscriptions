@@ -10,6 +10,8 @@ In summary you can:
 * Specify who is notified when a new email subscription is received
 * Customise an auto responder email that is sent to the person making the subscription
 * Export a CSV file of all your newsletter subscriptions
+* Optionally require an activation page is visited from a confirmation email.
+* Optionally tag the subscription with one or more types.
 
 When newsletter subscriptions come in, you and the customer are notified.
 
@@ -23,6 +25,6 @@ Go into your 'Subscriptions' tab in the Refinery admin area and click on "Edit c
 
 ## Attribution
 
-Forked from Resolve Digital's Inquiries Engine.
+Forked and modified from Resolve Digital's Inquiries Engine.
 
 https://github.com/resolve/refinerycms-inquiries

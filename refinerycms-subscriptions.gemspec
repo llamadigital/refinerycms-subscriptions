@@ -4,7 +4,7 @@ require "refinerycms-subscriptions/version"
 
 Gem::Specification.new do |s|
   s.name        = "refinerycms-subscriptions"
-  s.version     = %q{0.9.9.9} #Refinerycms::Subscriptions::VERSION
+  s.version     = Refinerycms::Subscriptions::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Llama Digital"]
   s.email       = ["team@llamadigital.net"]
