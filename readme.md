@@ -23,8 +23,13 @@ Go into your 'Subscriptions' tab in the Refinery admin area and click on "Update
 
 Go into your 'Subscriptions' tab in the Refinery admin area and click on "Edit confirmation email"
 
+## RefineryCMS
+
+This engine has been developed on RefineryCMS version 1.0.3.
+
 ## Attribution
 
 Forked and modified from Resolve Digital's Inquiries Engine.
 
 https://github.com/resolve/refinerycms-inquiries
+

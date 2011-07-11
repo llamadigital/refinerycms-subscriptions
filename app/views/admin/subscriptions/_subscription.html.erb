@@ -2,7 +2,9 @@
   <span class='title <%= subscription.is_active? ? 'active' : 'inactive' %>'>
     <%= link_to subscription.fullname, admin_subscription_url(subscription) %> -
     <%= link_to subscription.email, 'mailto:' + subscription.email %> <%= subscription.tags.join(', ') %>
+    <% if RefinerySetting.find_or_set('subscription_activation',false) -%>
     (<%= subscription.is_active? ? 'activated' : link_to('activate', activate_subscriptions_path(:token=>subscription.activation_token)) %>)
+    <% end %>
   </span>
   <span class='actions'>
     <%= link_to refinery_icon_tag('delete.png'), admin_subscription_url(subscription),

@@ -33,11 +33,19 @@ class SubscriptionsController < ApplicationController
     do_activate = RefinerySetting.find_or_set('subscription_activation',false)
 
     if @subscription.save
-
-      begin
-        SubscriptionMailer.activation(@subscription, request).deliver
-      rescue
-        logger.warn "There was an error delivering a subscription request.\n#{$!.inspect}\n#{$@.join('\n')}\n"
+      if do_activate
+        begin
+          SubscriptionMailer.activation(@subscription, request).deliver
+        rescue
+          logger.warn "There was an error delivering a subscription request.\n#{$!.inspect}\n#{$@.join('\n')}\n"
+        end
+      else
+        @subscription.activate!
+        begin
+          SubscriptionMailer.confirmation(@subscription, request).deliver
+        rescue
+          logger.warn "There was an error delivering a subscription activation confirmation.\n#{$!.inspect}\n#{$@.join('\n')}\n"
+        end
       end
       redirect_to thank_you_subscriptions_url
     else
@@ -47,20 +55,22 @@ class SubscriptionsController < ApplicationController
 
   def activate
     token = params[:token]
-    @subscription = Subscription.can_activate.all.reject { |s| s.activation_token!=token }
-    if @subscription.blank? || @subscription.size > 1
+    @subscriptions = Subscription.can_activate.all.reject { |s| s.activation_token!=token }
+    if @subscriptions.blank? 
       redirect_to not_activated_subscriptions_url
     else
-      @subscription.first.activate!
-      begin
-        SubscriptionMailer.notification(@subscription.first, request).deliver
-      rescue
-        logger.warn "There was an error delivering a subscription activation notification.\n#{$!.inspect}\n#{$@.join('\n')}\n"
-      end
-      begin
-        SubscriptionMailer.confirmation(@subscription.first, request).deliver
-      rescue
-        logger.warn "There was an error delivering a subscription activation confirmation.\n#{$!.inspect}\n#{$@.join('\n')}\n"
+      @subscriptions.each do |subscription|
+        subscription.activate!
+        begin
+          SubscriptionMailer.notification(subscription, request).deliver
+        rescue
+          logger.warn "There was an error delivering a subscription activation notification.\n#{$!.inspect}\n#{$@.join('\n')}\n"
+        end
+        begin
+          SubscriptionMailer.confirmation(subscription, request).deliver
+        rescue
+          logger.warn "There was an error delivering a subscription activation confirmation.\n#{$!.inspect}\n#{$@.join('\n')}\n"
+        end
       end
 
       redirect_to activated_subscriptions_url

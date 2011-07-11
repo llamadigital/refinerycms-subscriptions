@@ -12,6 +12,8 @@ en:
       submenu:
         list: List Subscriptions
         update_notified: Update who gets notified
+        enable_activation: Enabled activation
+        disable_activation: Disable activation
         edit_confirmation_email: Edit confirmation email
         edit_tags: Edit tags
         edit_activation_email: Edit activation email
