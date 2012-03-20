@@ -9,6 +9,7 @@ class Subscription < ActiveRecord::Base
 
   validates :given_name, :presence => true
   validates :family_name, :presence => true
+  validates :email, :uniqueness => true
   validates :email, :format=> { :with =>  /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i }
 
   acts_as_indexed :fields => [:given_name, :family_name, :email]
