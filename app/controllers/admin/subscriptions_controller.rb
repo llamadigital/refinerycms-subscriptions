@@ -21,11 +21,13 @@ class Admin::SubscriptionsController < Admin::BaseController
         #tags = Subscription.available_tag_options
 
         csv_string = CSV.generate do |csv|
-          csv << ['id','given_name','family_name','email','tags']
-          csv << 'activated' if do_activate
+          headings = ['id','given_name','family_name','email','tags']
+          headings << 'activated' if do_activate
+          csv << headings
           @subscriptions.each do |subscription|
-            csv << [subscription.id, subscription.given_name, subscription.family_name, subscription.email, subscription.tags.join(', ')]
-            csv << subscription.is_active? ? 'yes' : 'no' if do_activate
+            row = [subscription.id, subscription.given_name, subscription.family_name, subscription.email, subscription.tags.join(', ')]
+            row << (subscription.is_active? ? 'yes' : 'no') if do_activate
+            csv << row
           end
         end
         send_data csv_string,
